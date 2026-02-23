@@ -20,7 +20,7 @@ jobs:
           docker pull 'docker.pkg.github.com/kbeckmann/ubuntubuilder/ubuntubuilder-arm'
           docker tag docker.pkg.github.com/kbeckmann/ubuntubuilder/ubuntubuilder-arm:latest ubuntubuilder-arm
           # This line below now specifically targets the Zelda hardware
-          docker run --rm -v $(pwd):/build -w /build ubuntubuilder-arm sudo -E GNW_TARGET=zelda ./scripts/.ci_build_ubuntu.sh
+          docker run --rm -v $(pwd):/build -w /build ubuntubuilder-arm sudo -E GNW_TARGET=zelda DUAL_BOOT=0 ./scripts/.ci_build_ubuntu.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
